@@ -2,6 +2,7 @@ io.stdout:setvbuf("no") -- printing while running
 
 vector = require "libs/vector"
 timer = require "libs/timer"
+bump = require "libs/bump"
 gamestates = require "gamestates"
 
 controls = "mouse"
@@ -24,16 +25,13 @@ end
 -- SCREEEN SHAAAAKEKEKE
 
 -- BUG:
+-- platform collisions from side and bottom
 -- remove offset between bricks
 -- platform glue ball sticking
--- platform ball reverse collision not working
 -- score display scaling tweening
 -- score display go to text not score
 
 -- look at music volume might be 10% too loud
-
--- think fixed:
--- platform double collision
 
 function love.load()
 	local love_window_width = 800

@@ -64,7 +64,7 @@ function bonuses.clear_current_level_bonuses()
 	end
 end
 
-function bonuses.bonus_collected( i, bonus, balls, platform, walls, lives_display )
+function bonuses.bonus_collected( i, bonus, balls, platform, walls, lives_display, world )
 	if not bonuses.is_glue( bonus ) then
 		platform.remove_glued_effect()
 		balls.launch_all_balls_from_platform()
@@ -80,7 +80,7 @@ function bonuses.bonus_collected( i, bonus, balls, platform, walls, lives_displa
 	elseif bonuses.is_glue( bonus ) then
 		platform.react_on_glue_bonus()
 	elseif bonuses.is_add_new_ball( bonus ) then
-		balls.react_on_add_new_ball_bonus()
+		balls.react_on_add_new_ball_bonus( world)
 	elseif bonuses.is_life( bonus ) then
 		lives_display.add_life()
 	elseif bonuses.is_next_level( bonus ) then

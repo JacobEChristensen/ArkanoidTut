@@ -7,12 +7,14 @@ local side_panel = require "side_panel"
 local collisions = require "collisions"
 local levels = require "levels"
 
+local world = bump.newWorld()
+
 local game = {}
 
-function game.switch_to_next_level( bricks, ball, levels, side_panel )
+function game.switch_to_next_level( bricks, ball, levels, side_panel, world )
 	if bricks.no_more_bricks or platform.activated_next_level_bonus then
 		if side_panel.score_display.accurate then
-			bricks.clear_current_level_bricks()
+			bricks.clear_current_level_bricks( world )
 			bonuses.clear_current_level_bonuses()
 			platform.reset()
 			balls.reset()
@@ -31,7 +33,7 @@ function game.check_no_more_balls( ball, lives_display )
 		if lives_display.lives < 0 then
 			gamestates.set_state( "gameover", { ball, platform, bricks, walls, side_panel } )
 		else
-			balls.reset()
+			balls.reset( world )
 			platform.remove_bonuses_effects()
 			walls.remove_bonuses_effects()
 			bonuses.clear_current_level_bonuses()
@@ -40,16 +42,17 @@ function game.check_no_more_balls( ball, lives_display )
 end
 
 function game.load( prev_state, ... )
-	walls.construct_walls()
+	walls.construct_walls( world )
+	platform.make( world )
 end
 
 function game.enter( prev_state, ... )
 	args = ...
 	if prev_state == "gameover" or prev_state == "gameFinished" then
 		side_panel.reset()
-		balls.reset()
+		balls.reset( world )
 		platform.remove_bonuses_effects()
-		bricks.clear_current_level_bricks()
+		bricks.clear_current_level_bricks( world )
 		walls.remove_bonuses_effects()
 		music:seek( 0 )
 	end
@@ -59,21 +62,21 @@ function game.enter( prev_state, ... )
 	if args and args.current_level then
 		levels.current_level = args.current_level
 		local level = levels.require_current_level()
-		bricks.construct_level( level )
-		balls.reset()
+		bricks.construct_level( level, world )
+		balls.reset( world )
 		platform.remove_bonuses_effects()
 		walls.remove_bonuses_effects()
 	end
 end
 
 function game.update( dt )
-	balls.update( dt, platform )
-	platform.update( dt )
-	bricks.update( dt )
+	balls.update( dt, platform, bricks, world, bonuses, side_panel.score_display )
+	platform.update( dt, world )
+	bricks.update( dt, world )
 	bonuses.update( dt )
 	walls.update( dt )
 	side_panel.update( dt )
-	collisions.resolve_collisions( balls, platform, walls, bricks, bonuses, side_panel)
+	collisions.resolve_collisions( balls, platform, walls, bricks, bonuses, side_panel, world)
 	side_panel.lives_display.add_life_if_score_reached( side_panel.score_display.score )
 	game.check_no_more_balls( balls, side_panel.lives_display )
 	game.switch_to_next_level( bricks, ball, levels, side_panel )
@@ -90,7 +93,7 @@ end
 
 function game.keyreleased( key, code )
 	if key == 'c' then
-		bricks.clear_current_level_bricks()
+		bricks.clear_current_level_bricks( world )
 	elseif key == 'escape' then
 		music:pause()
 		gamestates.set_state( "gamePaused", { balls, platform, bricks, walls, side_panel })

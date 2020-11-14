@@ -27,6 +27,7 @@ platform.quad = love.graphics.newQuad( platform.norm_tile_x_pos,
 platform.width = platform.norm_tile_width
 platform.height = platform.norm_tile_height
 platform.size = "norm"
+platform.isPlatform = true
 
 
 function platform.bounce_from_wall( shift_platform, wall )
@@ -172,7 +173,11 @@ function platform.follow_mouse( dt )
 	end
 end
 
-function platform.update(dt)
+function platform.make( world )
+	world:add(platform, platform.position.x, platform.position.y, platform.width, platform.height )
+end
+
+function platform.update( dt, world)
 	if controls == "keyboard" then
 		if love.keyboard.isDown("right") then
 			platform.position = platform.position + (platform.speed * dt)
@@ -183,6 +188,7 @@ function platform.update(dt)
 	elseif controls == "mouse" then
 		platform.follow_mouse( dt )
 	end
+	world:update(platform, platform.position.x, platform.position.y, platform.width, platform.height )
 end
 
 function platform.draw()
