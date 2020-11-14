@@ -2,7 +2,7 @@ local balls_ps = require 'balls_ps'
 local sign = math.sign or function(x) return x < 0 and -1 or x > 0 and 1 or 0 end
 
 local balls = {}
-balls.image = love.graphics.newImage( "img/800x600/ball.png" )
+balls.image = love.graphics.newImage( "img/800x600/ball_var.png" )
 local x_tile_pos = 0
 local y_tile_pos = 0
 local tile_width = 18
