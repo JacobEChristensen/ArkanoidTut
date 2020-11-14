@@ -109,28 +109,35 @@ function balls.increase_speed_after_collision( single_ball )
 end
 
 function balls.bounce_from_sphere( single_ball, platform, normal )
-	--directions
-	if normal.x == 0 and normal.y == -1 then
-		--north
-	elseif normal.x == 0 and normal.y == 1 then
-		--south
-	elseif normal.x == 1 and normal.y == 0 then
-		--east
-	elseif normal.x == -1 and normal.y == 0 then
-		--west
-	end
 	local sphere_radius = 100
 	local ball_center = single_ball.position
 	local platform_center = platform.position + vector( platform.width / 2, platform.height / 2)
 	local separation = ( ball_center - platform_center )
-	local normal_direction = vector( separation.x / sphere_radius, -1 )
-	local v_norm = single_ball.speed:projectOn( normal_direction )
-	local v_tan = single_ball.speed - v_norm
-	local reverse_v_norm = v_norm * (-1)
-	single_ball.speed = reverse_v_norm + v_tan
-	if single_ball.position.y > platform.position.y + platform.height then
-		--single_ball.speed = single_ball.speed:mirrorOn(-1 * normal_direction)
+	
+	--directions
+	if normal.x == 0 and normal.y == -1 then
+		--north
+		local normal_direction = vector( separation.x / sphere_radius, normal.y )
+		local v_norm = single_ball.speed:projectOn( normal_direction )
+		local v_tan = single_ball.speed - v_norm
+		local reverse_v_norm = v_norm * -1
+		single_ball.speed = reverse_v_norm + v_tan
+	elseif normal.x == 0 and normal.y == 1 then
+		--south
+		local normal_direction = vector( separation.x / sphere_radius, normal.y )
+		local v_norm = single_ball.speed:projectOn( normal_direction )
+		local v_tan = single_ball.speed - v_norm
+		local reverse_v_norm = v_norm * -1
+		single_ball.speed = reverse_v_norm + v_tan
+	elseif normal.x == 1 and normal.y == 0 then
+		--east
+		single_ball.speed.x = single_ball.speed.x * -1
+	elseif normal.x == -1 and normal.y == 0 then
+		--west
+		single_ball.speed.x = single_ball.speed.x * -1
 	end
+	
+	
 end
 
 function balls.determine_actual_shift( shift_ball )
@@ -167,6 +174,7 @@ function balls.brick_rebound( single_ball, shift_ball, bricks, single_brick, bon
 	--balls.normal_rebound( single_ball, shift_ball )
 	balls.increase_collision_counter( single_ball )
 	balls.increase_speed_after_collision( single_ball )
+	last_bounce_is_platform = false
 end
 
 function balls.platform_rebound( single_ball, platform, normal )
@@ -182,6 +190,7 @@ function balls.platform_rebound( single_ball, platform, normal )
 		single_ball.platform_launch_speed_magnitude = single_ball.speed:len()
 		balls.compute_ball_platform_seperation( single_ball, platform )
 	end
+	last_bounce_is_platform = true
 end
 
 function balls.compute_ball_platform_seperation( single_ball, platform )
@@ -201,6 +210,7 @@ function balls.wall_rebound( single_ball, shift_ball )
 	balls.increase_collision_counter( single_ball )
 	balls.increase_speed_after_collision( single_ball )
 	ball_wall_sound:play()
+	last_bounce_is_platform = false
 end
 
 function balls.follow_platform( single_ball, platform )

@@ -25,7 +25,6 @@ end
 -- SCREEEN SHAAAAKEKEKE
 
 -- BUG:
--- platform collisions from side and bottom
 -- remove offset between bricks
 -- platform glue ball sticking
 -- score display scaling tweening

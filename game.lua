@@ -7,13 +7,17 @@ local side_panel = require "side_panel"
 local collisions = require "collisions"
 local levels = require "levels"
 
+local ended = false
+
 local world = bump.newWorld()
 
 local game = {}
 
 function game.switch_to_next_level( bricks, ball, levels, side_panel, world )
 	if bricks.no_more_bricks or platform.activated_next_level_bonus then
+		ended = true
 		if side_panel.score_display.accurate then
+			ended = false
 			bricks.clear_current_level_bricks( world )
 			bonuses.clear_current_level_bonuses()
 			platform.reset()
@@ -70,7 +74,9 @@ function game.enter( prev_state, ... )
 end
 
 function game.update( dt )
-	balls.update( dt, platform, bricks, world, bonuses, side_panel.score_display )
+	if not ended then
+		balls.update( dt, platform, bricks, world, bonuses, side_panel.score_display )
+	end
 	platform.update( dt, world )
 	bricks.update( dt, world )
 	bonuses.update( dt )
