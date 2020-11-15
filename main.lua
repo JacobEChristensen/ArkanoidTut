@@ -28,7 +28,7 @@ end
 -- remove offset between bricks
 -- platform glue ball sticking
 -- score display scaling tweening
--- score display go to text not score
+-- level switch ball thing
 
 -- look at music volume might be 10% too loud
 
