@@ -52,10 +52,11 @@ function walls.new_wall( position, width, height, layout )
 	return( { position = position,
  		   	  width = width,
  		      height = height,
- 		      layout = layout } )
+ 		      layout = layout,
+ 		      isWall = true } )
 end
 
-function walls.construct_walls()
+function walls.construct_walls( world )
 	local left_wall = walls.new_wall(
 		vector( 0, 0 ),
 		walls.side_wall_thickness,
@@ -80,6 +81,10 @@ function walls.construct_walls()
 		walls.top_wall_thickness,
 		"bottom"
 	)
+	world:add( left_wall, left_wall.position.x + 10, left_wall.position.y, left_wall.width, left_wall.height )
+	world:add( right_wall, right_wall.position.x, right_wall.position.y, right_wall.width, right_wall.height )
+	world:add( top_wall, top_wall.position.x, top_wall.position.y + 10, top_wall.width, top_wall.height )
+	world:add( bottom_wall, bottom_wall.position.x, bottom_wall.position.y, bottom_wall.width, bottom_wall.height )
 	walls.current_level_walls["left"] = left_wall
 	walls.current_level_walls["right"] = right_wall
     walls.current_level_walls["top"] = top_wall

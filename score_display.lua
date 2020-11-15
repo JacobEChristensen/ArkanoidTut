@@ -20,7 +20,7 @@ function add_score_anim( brick, ball, score )
 	anim.score = score * ball.combo
 	anim.scale = 1 + ball.combo / 10
 	anim.done = false
-	timer.tween(1, anim, {position = score_display.position }, 'in-quad', function() anim.done = true end)
+	timer.tween(1, anim, {position = vector( score_display.position.x, score_display.position.y + score_display.separation ) }, 'in-quad', function() anim.done = true end)
 	table.insert( score_display.score_animations, anim )
 end
 

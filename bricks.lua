@@ -91,7 +91,7 @@ function bricks.bricktype_to_quad( bricktype )
 								  bricks.tileset_width, bricks.tileset_height )
 end
 
-function bricks.new_brick( position, width, height, bricktype, bonustype )
+function bricks.new_brick( position, width, height, bricktype, bonustype, i )
 	return( { position = position,
 			  width = width or bricks.brick_width,
 			  height = height or bricks.brick_height,
@@ -99,7 +99,9 @@ function bricks.new_brick( position, width, height, bricktype, bonustype )
 			  quad = bricks.bricktype_to_quad( bricktype ),
 			  bonustype = bonustype,
 			  scale = 1,
-			  broken = false } )
+			  broken = false,
+			  isBrick = true,
+			  index = i } )
 end
 
 function bricks.draw_brick ( single_brick )
@@ -136,7 +138,7 @@ function bricks.draw_brick ( single_brick )
 	end
 end
 
-function bricks.construct_level( level )
+function bricks.construct_level( level, world )
 	bricks.no_more_bricks = false
 	local offset = 400
 	for row_index, row in ipairs( level.bricks ) do
@@ -155,6 +157,7 @@ function bricks.construct_level( level )
 													bricktype,
 													bonustype )
 				bricks.tween_brick( new_brick, offset )
+				world:add( new_brick, new_brick.position.x, new_brick.position.y, new_brick.width, new_brick.height)
 				table.insert( bricks.current_level_bricks, new_brick )
 			end
 		end
@@ -165,8 +168,9 @@ function bricks.tween_brick( single_brick, offset )
 	timer.tween(2.5, single_brick, {position = vector( single_brick.position.x, single_brick.position.y + offset ) }, 'in-bounce' )
 end
 
-function bricks.clear_current_level_bricks()
+function bricks.clear_current_level_bricks( world )
 	for i in pairs( bricks.current_level_bricks ) do
+		world:remove(bricks.current_level_bricks[i]) 
 		bricks.current_level_bricks[i] = nil
 	end
 	for i in pairs( bricks.breaking_bricks ) do
@@ -184,18 +188,19 @@ function bricks.scratched_to_cracked( single_brick )
    single_brick.quad = bricks.bricktype_to_quad( single_brick.bricktype )
 end
 
-function bricks.brick_hit_by_ball( i, brick, shift_ball, bonuses, score_display, ball )
+function bricks.brick_hit_by_ball( brick, shift_ball, bonuses, score_display, ball, world )
 	if bricks.is_simple( brick ) then
 		bonuses.generate_bonus(
 			vector( brick.position.x + brick.width / 2,
 					brick.position.y + brick.height / 2 ),
 					brick.bonustype )
 		score_display.add_score_for_simple_brick( brick, ball )
+		world:remove(brick)
 		table.insert( bricks.breaking_bricks, brick )
 		bricks.break_brick(brick)
 		local snd = simple_break_sound[ snd_rng:random( #simple_break_sound ) ]
 		snd:play()
-		table.remove( bricks.current_level_bricks, i )
+		table.remove( bricks.current_level_bricks, get_key_for_value(bricks.current_level_bricks, brick))
 	elseif bricks.is_armored( brick ) then
 		bricks.armored_to_scratched( brick )
 		local snd = armored_hit_sound[ snd_rng:random( #armored_hit_sound ) ]
@@ -209,10 +214,11 @@ function bricks.brick_hit_by_ball( i, brick, shift_ball, bonuses, score_display,
 			vector( brick.position.x + brick.width / 2,
 					brick.position.y + brick.height / 2 ),
 			brick.bonustype )
+		world:remove(brick)
 		table.insert( bricks.breaking_bricks, brick )
 		bricks.break_brick(brick)
 		score_display.add_score_for_cracked_brick( brick, ball )
-		table.remove( bricks.current_level_bricks, i )
+		table.remove( bricks.current_level_bricks, get_key_for_value(bricks.current_level_bricks, brick))
 		local snd = armored_break_sound[ snd_rng:random( #armored_break_sound ) ]
 		snd:play()
 	elseif bricks.is_heavyarmored( brick ) then
@@ -228,7 +234,8 @@ function bricks.break_brick( single_brick )
 	timer.tween(0.5, single_brick, {position = vector(shift_x, shift_y) } )
 end
 
-function bricks.update_brick ( single_brick )
+function bricks.update_brick ( world, brick )
+	world:update( brick, brick.position.x, brick.position.y)
 end
 
 function bricks.draw()
@@ -240,7 +247,7 @@ function bricks.draw()
    end
 end
 
-function bricks.update( dt )
+function bricks.update( dt, world )
 	timer.update( dt )
 	local no_more_bricks = true
    	for _, brick in pairs( bricks.current_level_bricks ) do
@@ -249,8 +256,18 @@ function bricks.update( dt )
    		else
    			no_more_bricks = no_more_bricks and false
    		end
+   		bricks.update_brick( world, brick )
    	end
    	bricks.no_more_bricks = no_more_bricks
+end
+
+function get_key_for_value(table, value)
+	for k,v in pairs(table) do
+		if v == value then
+			return k
+		end
+	end
+	return nil
 end
 
 return bricks

@@ -59,7 +59,7 @@ function collisions.ball_walls_collision( ball, walls )
 			overlap, shift_ball = collisions.check_rectangles_overlap( a, b )
 			if overlap then
 				--print( "ball-wall collision" )
-				balls.wall_rebound( ball, shift_ball )
+				--balls.wall_rebound( ball, shift_ball )
 			end
 		end
 	end
@@ -100,14 +100,14 @@ function collisions.ball_bricks_collision( ball, bricks, bonuses, score_display 
 			overlap, shift_ball = collisions.check_rectangles_overlap( a, b )
 			if overlap then
 				--print( "ball-brick collision" )
-				balls.brick_rebound( ball, shift_ball, bricks, brick )
-				bricks.brick_hit_by_ball( i, brick, shift_ball, bonuses, score_display, ball )
+				--balls.brick_rebound( ball, shift_ball, bricks, brick )
+				--bricks.brick_hit_by_ball( i, brick, shift_ball, bonuses, score_display, ball )
 			end
 		end
 	end
 end
 
-function collisions.platform_bonuses_collision( platform, bonuses, balls, walls, lives_display )
+function collisions.platform_bonuses_collision( platform, bonuses, balls, walls, lives_display, world )
 	local overlap
 	local b = { x = platform.position.x,
 				y = platform.position.y, 
@@ -120,17 +120,17 @@ function collisions.platform_bonuses_collision( platform, bonuses, balls, walls,
 					height = 2 * bonuses.radius}
 		overlap = collisions.check_rectangles_overlap( a, b )
 		if overlap then
-			bonuses.bonus_collected( i, bonus, balls, platform, walls, lives_display )
+			bonuses.bonus_collected( i, bonus, balls, platform, walls, lives_display, world )
 		end
 	end
 end
 
-function collisions.resolve_collisions( balls, platform, walls, bricks, bonuses, side_panel )
-	collisions.ball_platform_collision( balls, platform )
-	collisions.ball_walls_collision( balls, walls )
-	collisions.ball_bricks_collision( balls, bricks, bonuses, side_panel.score_display )
-	collisions.platform_walls_collision( platform, walls )
-	collisions.platform_bonuses_collision( platform, bonuses, balls, walls, side_panel.lives_display )
+function collisions.resolve_collisions( balls, platform, walls, bricks, bonuses, side_panel, world )
+	--collisions.ball_platform_collision( balls, platform )
+	--collisions.ball_walls_collision( balls, walls )
+	--collisions.ball_bricks_collision( balls, bricks, bonuses, side_panel.score_display )
+	--collisions.platform_walls_collision( platform, walls )
+	collisions.platform_bonuses_collision( platform, bonuses, balls, walls, side_panel.lives_display, world )
 end
 
 return collisions
