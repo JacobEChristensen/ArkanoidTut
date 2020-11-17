@@ -43,6 +43,7 @@ local quit_button_selected_quad = love.graphics.newQuad(
 
 local start_button = {}
 local quit_button = {}
+local edit_button = {}
 
 function menu.load( prev_state, ... )
 	music:play()
@@ -64,17 +65,28 @@ function menu.load( prev_state, ... )
 		quad = quit_button_quad,
 		quad_when_selected = quit_button_selected_quad
 	}
+	edit_button = buttons.new_button{
+		text = "Edit",
+		position = vector( (800 - button_tile_width ) / 2 + 1.5 * button_tile_width , 255 ),
+		width = button_tile_width,
+		height = button_tile_height,
+		image = menu_buttons_image,
+		--quad = quit_button_quad,
+		--quad_when_selected = quit_button_selected_quad
+	}
 end
 
 function menu.update( dt )
 	buttons.update_button( start_button, dt )
 	buttons.update_button( quit_button, dt )
+	buttons.update_button( edit_button, dt )
 end
 
 function menu.draw()
 	--love.graphics.print("Menu gamestate. Press Enter to continue.", 280, 250)
 	buttons.draw_button( start_button )
 	buttons.draw_button( quit_button )
+	buttons.draw_button( edit_button )
 end
 
 --[[function menu.keyreleased( key, code )
@@ -91,6 +103,8 @@ function menu.mousereleased( x, y, button, istouch)
 			gamestates.set_state( "game", { current_level = 1} )
 		elseif buttons.mousereleased( quit_button, x, y, button ) then
 			love.event.quit()
+		elseif buttons.mousereleased( edit_button, x, y, button ) then
+			gamestates.set_state( "levelEditor" )
 		end
 	elseif button == 'r' or button == 2 then
 		love.event.quit()
