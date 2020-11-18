@@ -54,11 +54,20 @@ function levelEditor.keyreleased( key, code )
 		bricktype_clipboard = editor_tile.react_on_copy()
 	elseif key == 'v' then
 		editor_tile.react_on_paste( bricktype_clipboard )
+	elseif key == 'e' then
+		levelEditor.export()
 	end
 end
 
 function levelEditor.exit()
 	game_objects = nil
+end
+
+function levelEditor.export()
+	testTable = { 10, 10, 13 }
+	t = "levels/temp/testSave" .. tostring(os.date("%d-%m-%Y")) .. "-" .. tostring(os.date("%H%M%S")) .. ".txt"
+	print(t)
+	table.save( testTable, t)
 end
 
 return levelEditor
