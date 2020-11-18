@@ -64,9 +64,10 @@ function levelEditor.exit()
 end
 
 function levelEditor.export()
-	testTable = { 10, 10, 13 }
+	--testTable = { 10, 10, 13 }
+	--testTable = editor_tile.current_level_tiles
+	testTable = editor_tile.getLevel()
 	t = "levels/temp/testSave" .. tostring(os.date("%d-%m-%Y")) .. "-" .. tostring(os.date("%H%M%S")) .. ".txt"
-	print(t)
 	table.save( testTable, t)
 end
 

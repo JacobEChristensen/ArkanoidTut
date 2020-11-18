@@ -39,10 +39,6 @@ function editor_tile.is_heavyarmored( single_brick )
    return ( row == 5 )
 end
 
-function editor_tile.add_to_current_level_editor_tile( brick )
-   table.insert( editor_tile.current_level_editor_tile, brick )
-end
-
 function editor_tile.bricktype_to_quad( bricktype )
 	local row = math.floor( bricktype / 10 )
 	local col = bricktype % 10
@@ -192,6 +188,32 @@ function editor_tile.tile_change_bricktype( tile )
 	end
 
 	tile.quad = editor_tile.bricktype_to_quad( tile.bricktype )
+end
+
+function editor_tile.getLevel()
+	outTable = {}
+	inTable = {}
+	for _, tile in pairs( editor_tile.current_level_tiles ) do
+		table.insert( inTable, tile.bricktype )
+	end
+	for i = 1, 11 do
+		local rowTable ={}
+		for j = 1, 8 do
+			index = (i-1) * 8 + j
+			table.insert( rowTable, inTable[index])
+		end
+		local tempTable = copy(rowTable)
+		rowTable = nil
+		table.insert(outTable, tempTable)
+	end
+	return outTable
+end
+
+function copy(obj)
+    if type(obj) ~= 'table' then return obj end
+    local res = {}
+    for k, v in pairs(obj) do res[copy(k)] = copy(v) end
+    return res
 end
 
 return editor_tile
