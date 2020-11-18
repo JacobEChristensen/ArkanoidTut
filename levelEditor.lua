@@ -2,27 +2,23 @@ local levelEditor = {}
 
 local bricks = require "bricks"
 local walls = require "walls"
+local editor_tile = require "editor_tile"
 
 local world = bump.newWorld()
 
-function levelEditor.drawGrid()
+local bricktype_clipboard = 00
+
+function levelEditor.makeGrid()
 	for i = 1, bricks.rows do
 		for j = 1, bricks.columns do
-			love.graphics.rectangle( "line", 
-				bricks.top_left_position.x + ( j - 1 ) * ( bricks.brick_width + bricks.horizontal_distance ), 
-				bricks.top_left_position.y + ( i - 1 ) * ( bricks.brick_height + bricks.vertical_distance ), 
-				bricks.brick_width, bricks.brick_height)
+			editor_tile.make_tile( i, j )
 		end
 	end
 end
 
--- make a time class
--- keeps x,y position, selected for button pressing and the bricktype.
--- needs to have a display thing that shows the brick type  
-
 function levelEditor.load( prev_state, ... )
 	walls.construct_walls( world )
-	levelEditor.drawGrid()
+	levelEditor.makeGrid()
 end
 
 function levelEditor.enter( prev_state, ... )
@@ -30,11 +26,12 @@ function levelEditor.enter( prev_state, ... )
 end
 
 function levelEditor.update( dt )
+	editor_tile.update( dt )
 end
 
 function levelEditor.draw()
 	walls.draw()
-	levelEditor.drawGrid()
+	editor_tile.draw()
 end
 
 function levelEditor.keyreleased( key, code )
@@ -44,7 +41,20 @@ function levelEditor.keyreleased( key, code )
 end
 
 function levelEditor.mousereleased( x, y, button, istouch)
+	if button == 1 then
+		editor_tile.react_on_left_click()
+	end
+	if button == 2 then
+		editor_tile.react_on_right_click()
+	end
+end
 
+function levelEditor.keyreleased( key, code )
+	if key == 'c' then
+		bricktype_clipboard = editor_tile.react_on_copy()
+	elseif key == 'v' then
+		editor_tile.react_on_paste( bricktype_clipboard )
+	end
 end
 
 function levelEditor.exit()
