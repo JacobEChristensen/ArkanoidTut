@@ -7,7 +7,7 @@ lives_display.livesDefault = 5
 lives_display.lives = lives_display.livesDefault
 lives_display.lives_added_from_score = 0
 
-local bungee_font = love.graphics.newFont("/fonts/Bungee_Inline/BungeeInline-regular.ttf", 20)
+local bungee_font = love.graphics.newFont("/fonts/Bungee_Inline/BungeeInline-Regular.ttf", 20)
 
 function lives_display.add_life_if_score_reached( score )
 	local score_milestone = (lives_display.lives_added_from_score + 1) * 3000

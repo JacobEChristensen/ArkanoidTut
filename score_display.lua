@@ -10,7 +10,7 @@ score_display.scale = 1
 score_display.accurate = true
 
 
-local bungee_font = love.graphics.newFont("/fonts/Bungee_Inline/BungeeInline-regular.ttf", 20)
+local bungee_font = love.graphics.newFont("/fonts/Bungee_Inline/BungeeInline-Regular.ttf", 20)
 
 function add_score_anim( brick, ball, score )
 	score_display.accurate = false

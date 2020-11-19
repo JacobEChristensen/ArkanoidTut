@@ -76,6 +76,21 @@ function menu.load( prev_state, ... )
 	}
 end
 
+function menu.drawTutorial()
+	love.graphics.print( "Controls: ",
+						 10, 10)
+	love.graphics.print( "By default the platform follows your mouse.",
+						 10, 30)
+	love.graphics.print( "Press X to switch to using the arrow keys",
+						 10, 50)
+	love.graphics.print( "In mouse controls, left click shoots the ball",
+						 10, 70)
+	love.graphics.print( "and right click pauses the game",
+						 10, 90)
+	love.graphics.print( "Using the keyboard, shoot with space and pause with esc",
+						 10, 110)
+end
+
 function menu.update( dt )
 	buttons.update_button( start_button, dt )
 	buttons.update_button( quit_button, dt )
@@ -87,6 +102,7 @@ function menu.draw()
 	buttons.draw_button( start_button )
 	buttons.draw_button( quit_button )
 	buttons.draw_button( edit_button )
+	menu.drawTutorial()
 end
 
 --[[function menu.keyreleased( key, code )

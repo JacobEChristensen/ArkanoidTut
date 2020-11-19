@@ -1,7 +1,7 @@
 local gamePaused = {}
 local game_objects = {}
 
-local bungee_font = love.graphics.newFont("/fonts/Bungee_Inline/BungeeInline-regular.ttf", 30)
+local bungee_font = love.graphics.newFont("/fonts/Bungee_Inline/BungeeInline-Regular.ttf", 30)
 
 function gamePaused.cast_shadow()
 	local r, g, b, a = love.graphics.getColor()
