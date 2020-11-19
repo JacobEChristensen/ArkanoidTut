@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"ball_wall",
+				"ball_wall_sound"
+			],
+			[
+				"bonus",
+				"bonus_collected_sound"
+			],
+			[
+				"simple_break",
+				"simple_break_sound"
+			],
+			[
+				"scale_",
+				"scale_display_up"
+			],
+			[
+				"lives_d",
+				"lives_added_from_score"
+			],
+			[
+				"armored_",
+				"armored_hit_sound"
+			],
+			[
+				"armore",
+				"armored_hit_sound"
+			],
+			[
+				"topright_c",
+				"topright_corner_tile_height"
+			],
+			[
+				"play_but",
+				"play_button_selected_quad"
+			],
+			[
+				"button_til",
+				"button_tile_height"
+			],
+			[
+				"platform_",
+				"platform_launch_speed_magnitude"
+			],
+			[
+				"tween",
+				"tween_bricks"
+			],
+			[
+				"new_bric",
+				"new_brick"
+			],
+			[
 				"twee",
 				"tween_bricks"
 			],
@@ -131,43 +183,7 @@
 			"file": "main.lua",
 			"settings":
 			{
-				"buffer_size": 760,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "bricks.lua",
-			"settings":
-			{
-				"buffer_size": 5825,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "platform.lua",
-			"settings":
-			{
-				"buffer_size": 6052,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "balls.lua",
-			"settings":
-			{
-				"buffer_size": 9781,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game.lua",
-			"settings":
-			{
-				"buffer_size": 2452,
+				"buffer_size": 1216,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -245,34 +261,51 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut"
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/libs"
 	],
 	"file_history":
 	[
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/menu.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/lives_display.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gameover.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/game.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/side_panel.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/score_display.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gamePaused.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/buttons.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/bricks.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/editor_tile.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levelEditor.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/conf.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/checkers.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gamestates.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/tableSaveTest/SaveTableToFile.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/balls.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/platform.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/collisions.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/bonuses.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/walls.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/main.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/sequence.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/libs/bump.lua",
+		"/C/Users/jacob/Downloads/bump.lua-simpledemo/bump.lua-simpledemo/main.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/intro.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/img/800x600/bricks.png",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/ying_yang.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/template.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gameFinished.lua",
+		"/C/Users/jacob/AppData/Local/Temp/Rar$DRa12972.45681/BungeeInline-Regular.ttf",
+		"/C/Users/jacob/AppData/Local/Temp/Rar$DRa10588.42840/BungeeInline-Regular.ttf",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/balls_ps.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/TweenTest/main.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/libs/timer.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/game.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/bricks.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/platform.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/intro.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/bonuses.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/towers.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/sequence.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/test_all.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/hey.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/walls.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/collisions.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/balls.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/lives_display.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gamestates.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/menu.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/ball.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/checkers.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/bye.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gameover.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gameFinished.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gamePaused.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/lives.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/sequence.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/vector.lua",
@@ -289,7 +322,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -303,6 +336,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bricks",
+			"quad_when_selected",
+			"gameover",
+			":\n",
+			"end",
+			"left",
+			"love_window_height",
 			"norm",
 			"small",
 			"print",
@@ -315,6 +355,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"editor_tile",
+			"levelEditor",
+			"top",
+			"right",
 			"large",
 			"norm"
 		],
@@ -327,7 +371,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -336,15 +380,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 760,
+						"buffer_size": 1216,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								298,
-								298
+								107,
+								107
 							]
 						],
 						"settings":
@@ -356,121 +400,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bricks.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5825,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5565,
-								5565
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 224.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "platform.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6052,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5400,
-								5400
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2584.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "balls.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6979,
-								6979
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3007.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "game.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2452,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1742,
-								1742
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 604.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -478,11 +408,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 31.0
 	},
 	"input":
 	{
-		"height": 44.0
+		"height": 58.0
 	},
 	"layout":
 	{
@@ -519,7 +449,7 @@
 	"project": "ArkanoidProject.sublime-project",
 	"replace":
 	{
-		"height": 70.0
+		"height": 78.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -561,7 +491,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 147.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
