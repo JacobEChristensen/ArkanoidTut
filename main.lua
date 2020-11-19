@@ -1,5 +1,7 @@
 io.stdout:setvbuf("no") -- printing while running
 
+require "libs/SaveTableToFile"
+
 vector = require "libs/vector"
 timer = require "libs/timer"
 bump = require "libs/bump"
