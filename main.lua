@@ -56,4 +56,3 @@ end
 function love.keyreleased( key, code )
 	gamestates.state_event( "keyreleased", key, code )
 end
-
