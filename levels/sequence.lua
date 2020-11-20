@@ -1,8 +1,14 @@
 return {
 	"intro",
-	"hey",
 	"checkers",
 	"ying_yang",
-	"bye",
+	"stair",
+	"lines",
+	"protected_c",
 	"towers"
 }
+
+-- Level list outline
+
+
+-- BOSS LEVEL

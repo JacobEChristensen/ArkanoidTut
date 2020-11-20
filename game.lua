@@ -85,7 +85,7 @@ function game.update( dt )
 	collisions.resolve_collisions( balls, platform, walls, bricks, bonuses, side_panel, world)
 	side_panel.lives_display.add_life_if_score_reached( side_panel.score_display.score )
 	game.check_no_more_balls( balls, side_panel.lives_display )
-	game.switch_to_next_level( bricks, ball, levels, side_panel )
+	game.switch_to_next_level( bricks, ball, levels, side_panel, world )
 end
 
 function game.draw()

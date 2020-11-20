@@ -51,6 +51,7 @@ local ball_heavyarmored_sound = {
       "static") }
 
 local snd_rng = love.math.newRandomGenerator( os.time() )
+local timer_rng = love.math.newRandomGenerator( os.time() )
 
 function bricks.is_simple( single_brick )
    local row = math.floor( single_brick.bricktype / 10 )
@@ -165,7 +166,9 @@ function bricks.construct_level( level, world )
 end
 
 function bricks.tween_brick( single_brick, offset )
-	timer.tween(2.5, single_brick, {position = vector( single_brick.position.x, single_brick.position.y + offset ) }, 'in-bounce' )
+	local time = 1.5
+	local time_offset = snd_rng:random()
+	timer.tween( time + time_offset, single_brick, {position = vector( single_brick.position.x, single_brick.position.y + offset ) }, 'in-bounce' )
 end
 
 function bricks.clear_current_level_bricks( world )
