@@ -282,7 +282,7 @@ function balls.reset( world )
 	end
 end
 
-function balls.update_ball( single_ball, dt, platform, bricks, world, bonuses, score_display )
+function balls.update_ball( single_ball, dt, platform, bricks, world, bonuses, score_display, cam )
 	if single_ball.stuck_to_platform then
 		balls.follow_platform( single_ball, platform )
 	else
@@ -296,12 +296,15 @@ function balls.update_ball( single_ball, dt, platform, bricks, world, bonuses, s
 			if other.isWall then
 				balls.wall_rebound( single_ball, vector(0,0))
 				balls.changeSpeedFromNormal( single_ball, col.normal.x, col.normal.y )
+				cam.shake(0.2)
 			elseif other.isBrick then
 				balls.brick_rebound( single_ball, vector(0,0), bricks, other, bonuses, score_display, world )
 				balls.changeSpeedFromNormal( single_ball, col.normal.x, col.normal.y )
+				cam.shake(0.1)
 			elseif other.isPlatform then
 				balls.platform_rebound( single_ball, platform, vector( col.normal.x, col.normal.y ) )
 				--balls.changeSpeedFromNormal( single_ball, col.normal.x, col.normal.y )
+				cam.shake(0.2)
 			end
 		end
 	end
@@ -329,9 +332,9 @@ function balls.changeSpeedFromNormal( single_ball, nx, ny )
 end
 
 
-function balls.update( dt, platform, bricks, world, bonuses, score_display )
+function balls.update( dt, platform, bricks, world, bonuses, score_display, cam )
 	for _, ball in ipairs( balls.current_balls ) do
-		balls.update_ball( ball, dt, platform, bricks, world, bonuses, score_display )
+		balls.update_ball( ball, dt, platform, bricks, world, bonuses, score_display, cam )
 	end
 	balls.check_balls_escaped_from_screen( world )
 	balls_ps.update( dt )

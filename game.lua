@@ -6,12 +6,14 @@ local walls = require "walls"
 local side_panel = require "side_panel"
 local collisions = require "collisions"
 local levels = require "levels"
+local cam = require "cam_table"
 
 local ended = false
 
 local world = bump.newWorld()
 
 local game = {}
+
 
 function game.switch_to_next_level( bricks, ball, levels, side_panel, world )
 	if bricks.no_more_bricks or platform.activated_next_level_bonus then
@@ -75,7 +77,7 @@ end
 
 function game.update( dt )
 	if not ended then
-		balls.update( dt, platform, bricks, world, bonuses, side_panel.score_display )
+		balls.update( dt, platform, bricks, world, bonuses, side_panel.score_display, cam )
 	end
 	platform.update( dt, world )
 	bricks.update( dt, world )
@@ -89,12 +91,14 @@ function game.update( dt )
 end
 
 function game.draw()
+	cam:attach()
 	balls.draw()
 	platform.draw()
 	bricks.draw()
 	bonuses.draw()
 	walls.draw()
 	side_panel.draw()
+	cam:detach()
 end
 
 function game.keyreleased( key, code )

@@ -5,6 +5,7 @@ require "libs/SaveTableToFile"
 vector = require "libs/vector"
 timer = require "libs/timer"
 bump = require "libs/bump"
+camera = require "libs/camera"
 gamestates = require "gamestates"
 
 controls = "mouse"
@@ -24,13 +25,14 @@ end
 
 -- Revise Graphics
 -- golf sticky first shot 
--- SCREEEN SHAAAAKEKEKE
+
+-- set up seperate animation and game states
 
 -- BUG:
 -- remove offset between bricks
 -- platform glue ball sticking
 -- score display scaling tweening
--- level switch ball thing
+-- level switch ball thing 
 
 -- look at music volume might be 10% too loud
 
@@ -40,6 +42,8 @@ function love.load()
 	love.window.setMode( love_window_width,
 						 love_window_height,
 						 { fullscreen = false } )
+	local title = "Jakeanoid"
+	love.window.setTitle( title )
 	gamestates.set_state( "menu" )
 end
 
