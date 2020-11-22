@@ -1,4 +1,5 @@
 return {
+	"test_all",
 	"intro",
 	"checkers",
 	"ying_yang",

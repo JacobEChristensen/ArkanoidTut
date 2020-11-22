@@ -185,8 +185,6 @@ function balls.platform_rebound( single_ball, platform, normal )
 		balls.bounce_from_sphere( single_ball, platform, normal )
 	else
 		single_ball.stuck_to_platform = true
-		local actual_shift = balls.determine_actual_shift( shift_ball )
-		single_ball.position = single_ball.position + actual_shift
 		single_ball.platform_launch_speed_magnitude = single_ball.speed:len()
 		balls.compute_ball_platform_seperation( single_ball, platform )
 	end

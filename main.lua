@@ -30,9 +30,10 @@ end
 
 -- BUG:
 -- remove offset between bricks
--- platform glue ball sticking
 -- score display scaling tweening
 -- level switch ball thing 
+-- Glue bonus stick on colliding place
+-- next level bonus wall collider needs to be removed
 
 -- look at music volume might be 10% too loud
 
