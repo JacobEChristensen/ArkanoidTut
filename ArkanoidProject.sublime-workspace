@@ -189,46 +189,10 @@
 			}
 		},
 		{
-			"file": "bonuses.lua",
-			"settings":
-			{
-				"buffer_size": 5179,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "levels/sequence.lua",
 			"settings":
 			{
-				"buffer_size": 145,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game.lua",
-			"settings":
-			{
-				"buffer_size": 3536,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "balls.lua",
-			"settings":
-			{
-				"buffer_size": 12608,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "cam_table.lua",
-			"settings":
-			{
-				"buffer_size": 288,
+				"buffer_size": 389,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -307,15 +271,24 @@
 	"expanded_folders":
 	[
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/img",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/img/800x600",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels"
 	],
 	"file_history":
 	[
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/protected_c.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/protected.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/pillars.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/angry_smiley.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/butterfly.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/cam_table.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/balls.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/game.lua",
+		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/bonuses.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/bricks.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/sequence.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levelEditor.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/protected_c.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/game.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/lines.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/stair.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/menu.lua",
@@ -330,10 +303,8 @@
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/levels/checkers.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/gamestates.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/tableSaveTest/SaveTableToFile.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/balls.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/platform.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/collisions.lua",
-		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/bonuses.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/walls.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/main.lua",
 		"/C/Users/jacob/Documents/LovePrototyping/ArkanoidTut/libs/bump.lua",
@@ -423,7 +394,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -439,8 +410,8 @@
 						"selection":
 						[
 							[
-								780,
-								780
+								828,
+								828
 							]
 						],
 						"settings":
@@ -449,142 +420,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 227.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bonuses.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5179,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3062,
-								3062
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1750.4,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "levels/sequence.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 145,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								145,
-								145
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "game.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3536,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1491,
-								1491
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 7.0,
-						"translation.y": 723.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "balls.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12608,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7102,
-								7102
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3163.2,
+						"translation.y": 439.2,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "cam_table.lua",
+					"buffer": 1,
+					"file": "levels/sequence.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 288,
+						"buffer_size": 389,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								288,
-								288
+								163,
+								163
 							]
 						],
 						"settings":
@@ -595,7 +451,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
